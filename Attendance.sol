@@ -6,15 +6,15 @@ contract salary {
     mapping(address => bool) public hassalarygiven;
 
     function salarygiven() public {
-        require(!hassalarygiven[msg.sender], "Already Given"); // Check if the sender has already voted
+        require(!hassalarygiven[msg.sender], "Already Given"); 
 
         totalsalaryrecived++;
         hassalarygiven[msg.sender] = true;
 
-        if (totalsalaryrecived > 100) {
-            revert("employee limit exceeded"); // Revert the transaction if the emloyee limit is exceeded
+        if (totalsalaryrecived > 50) {
+            revert("employee limit exceeded"); 
         }
 
-        assert(totalsalaryrecived <= 100); // Ensure that the total employee does not exceed the limit
+        assert(totalsalaryrecived <= 50); 
     }
 }
