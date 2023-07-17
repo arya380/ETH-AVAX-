@@ -1,20 +1,20 @@
 pragma solidity ^0.8.0;
 
-contract Attend {
+contract salary {
 
-    uint public totalAttendance;
-    mapping(address => bool) public hasAttended;
+    uint public totalsalaryrecived;
+    mapping(address => bool) public hassalarygiven;
 
-    function markAtendance() public {
-        require(!hasAttended[msg.sender], "Already marked"); // Check if the sender has already voted
+    function salarygiven() public {
+        require(!hassalarygiven[msg.sender], "Already Given"); // Check if the sender has already voted
 
-        totalAttendance++;
-        hasAttended[msg.sender] = true;
+        totalsalaryrecived++;
+        hassalarygiven[msg.sender] = true;
 
-        if (totalAttendance > 100) {
-            revert("marking limit exceeded"); // Revert the transaction if the voting limit is exceeded
+        if (totalsalaryrecived > 100) {
+            revert("employee limit exceeded"); // Revert the transaction if the emloyee limit is exceeded
         }
 
-        assert(totalAttendance <= 100); // Ensure that the total votes does not exceed the limit
+        assert(totalsalaryrecived <= 100); // Ensure that the total employee does not exceed the limit
     }
 }
